@@ -6,3 +6,6 @@ function backSpace(){
     delete content[content.length-1];
     document.getElementById('readout').innerHTML = content.join("");
 };
+function clearReadout(){
+    document.getElementById('readout').innerHTML = "";
+};
