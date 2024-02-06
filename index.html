@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" contnet="width=device-width, initial-scale=1.0">
+        <title>Tailwindcss Test Project</title>
+        <link rel="stylesheet" href="output.css">
+        <link rel="stylesheet" href="styles.css">
+        <script src="scripts.js" defer></script>
+    </head>
+    <body id="my-background">
+        <main class="flex justify-around m-5">
+            <div class="bg-yellow-500 border-solid border-2 border-white w-40 h-40 text-center flex justify-center items-center hover:w-44 hover:h-44"><p class="text-xl font-bold">Yellow</p></div>
+            <div class="bg-green-500 border-solid border-2 border-white w-40 h-40 text-center flex justify-center items-center hover:w-44 hover:h-44"><p class="text-xl font-bold">Green</p></div>
+            <div class="bg-red-500 border-solid border-2 border-white w-40 h-40 text-center flex justify-center items-center hover:w-44 hover:h-44"><p class="text-xl font-bold">Red</p></div>
+            <div class="bg-blue-500 border-solid border-2 border-white w-40 h-40  text-center flex justify-center items-center hover:w-44 hover:h-44"><p class="text-xl font-bold">Blue</p></div>
+        </main>
+        <div id="calculator" class="m-auto w-[700px] h-100 flex flex-wrap bg-blue-500">
+            <textarea id="readout" class="block w-3/4 h-20 ml-auto mr-auto mt-5 mb-5 read-only"></textarea>
+            <div id="button-container" class="flex flex-wrap ml-auto mr-auto mt-2 mb-5 w-3/4 justify-center">
+                <button id="clear-button" class="calc-buttons">Clear</button>
+                <button id="percent" class="calc-buttons">%</button>
+                <button id="CE" class="calc-buttons">CE</button>
+                <button id="C" class="calc-buttons">C</button>
+                <button id="Backspace" class="calc-buttons" onclick="backSpace()">Backspace</button>
+                <button id="1/x" class="calc-buttons">1/x</button>
+                <button id="squared" class="calc-buttons">sqr</button>
+                <button id="square-root" class="calc-buttons">sqrt</button>
+                <button id="divide" class="calc-buttons">/</button>
+                <button id="seven" class="calc-buttons" onclick="numKey(7)">7</button>
+                <button id="eight" class="calc-buttons" onclick="numKey(8)">8</button>
+                <button id="nine" class="calc-buttons" onclick="numKey(9)">9</button>
+                <button id="multiply" class="calc-buttons">x</button>
+                <button id="four" class="calc-buttons" onclick="numKey(4)">4</button>
+                <button id="five" class="calc-buttons" onclick="numKey(5)">5</button>
+                <button id="six" class="calc-buttons" onclick="numKey(6)">6</button>
+                <button id="subtract" class="calc-buttons">-</button>
+                <button id="one" class="calc-buttons" onclick="numKey(1)">1</button>
+                <button id="two" class="calc-buttons" onclick="numKey(2)">2</button>
+                <button id="three" class="calc-buttons" onclick="numKey(3)">3</button>
+                <button id="add" class="calc-buttons">+</button>
+                <button id="positive-negative" class="calc-buttons">+/-</button>
+                <button id="zero" class="calc-buttons" onclick="numKey(0)">0</button>
+                <button id="decimal" class="calc-buttons">.</button>
+                <button id="equals" class="calc-buttons">=</button>
+            </div>
+        </div>
+    </body>
+</html>

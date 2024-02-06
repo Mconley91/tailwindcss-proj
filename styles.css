@@ -1,0 +1,9 @@
+#my-background {
+    background-color: black;
+}
+.calc-buttons {
+    background-color: rgb(127, 127, 201);
+    width: 120px;
+    height: 50px;
+    margin: 5px;
+}
