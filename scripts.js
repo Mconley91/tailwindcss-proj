@@ -6,6 +6,7 @@ let resultGot = false;
 
 function numKey(key){
     if (resultGot === true){
+        document.getElementById('previous-readout').innerHTML = document.getElementById('readout').innerHTML;
         document.getElementById('readout').innerHTML = '';
         resultGot = false;
     };
@@ -18,12 +19,14 @@ function backSpace(){
 };
 function clearReadout(){
     document.getElementById('readout').innerHTML = "";
+    document.getElementById('previous-readout').innerHTML = "";
     sessionStorage.clear();
 };
 function additionButton(){
-        sessionStorage.setItem('firstNumber',document.getElementById('readout').innerHTML);
-        document.getElementById('readout').innerHTML = '';
-        readyToAdd = true;
+    sessionStorage.setItem('firstNumber',document.getElementById('readout').innerHTML);
+    //document.getElementById('previous-readout').innerHTML = document.getElementById('readout').innerHTML;
+    document.getElementById('readout').innerHTML = '';
+    readyToAdd = true;
 };
 function subtractionButton(){
     sessionStorage.setItem('firstNumber',document.getElementById('readout').innerHTML);
