@@ -24,7 +24,7 @@ function clearReadout(){
 };
 function additionButton(){
     sessionStorage.setItem('firstNumber',document.getElementById('readout').innerHTML);
-    //document.getElementById('previous-readout').innerHTML = document.getElementById('readout').innerHTML;
+    document.getElementById('previous-readout').innerHTML = document.getElementById('readout').innerHTML;
     document.getElementById('readout').innerHTML = '';
     readyToAdd = true;
 };
