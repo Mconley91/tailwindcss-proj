@@ -3,10 +3,11 @@ let readyToSubtract = false;
 let readyToMultiply = false;
 let readyToDivide = false;
 let resultGot = false;
+let result
 
 function numKey(key){
     if (resultGot === true){
-        document.getElementById('previous-readout').innerHTML = document.getElementById('readout').innerHTML;
+        document.getElementById('previous-readout').innerHTML = result;
         document.getElementById('readout').innerHTML = '';
         resultGot = false;
     };
@@ -20,13 +21,15 @@ function backSpace(){
 function clearReadout(){
     document.getElementById('readout').innerHTML = "";
     document.getElementById('previous-readout').innerHTML = "";
+    result = "";
     sessionStorage.clear();
 };
 function additionButton(){
     sessionStorage.setItem('firstNumber',document.getElementById('readout').innerHTML);
-    document.getElementById('previous-readout').innerHTML = document.getElementById('readout').innerHTML;
+    document.getElementById('previous-readout').innerHTML = document.getElementById('readout').innerHTML + " +";
     document.getElementById('readout').innerHTML = '';
     readyToAdd = true;
+    resultGot = false;
 };
 function subtractionButton(){
     sessionStorage.setItem('firstNumber',document.getElementById('readout').innerHTML);
@@ -45,7 +48,7 @@ function divisionButton(){
 };
 function getResult(){
     if (readyToAdd === true) {
-        let result = parseInt(sessionStorage.getItem('firstNumber')) + parseInt(document.getElementById('readout').innerHTML)
+        result = parseInt(sessionStorage.getItem('firstNumber')) + parseInt(document.getElementById('readout').innerHTML)
         document.getElementById('readout').innerHTML = result
         readyToAdd = false;
         resultGot = true;
