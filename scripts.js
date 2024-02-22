@@ -3,11 +3,10 @@ let readyToSubtract = false;
 let readyToMultiply = false;
 let readyToDivide = false;
 let resultGot = false;
-let result
+let result;
 
 function numKey(key){
     if (resultGot === true){
-        document.getElementById('previous-readout').innerHTML = result;
         document.getElementById('readout').innerHTML = '';
         resultGot = false;
     };
@@ -20,55 +19,56 @@ function backSpace(){
 };
 function clearReadout(){
     document.getElementById('readout').innerHTML = "";
-    document.getElementById('previous-readout').innerHTML = "";
+    document.getElementById('results-readout').innerHTML = "";
     result = "";
     sessionStorage.clear();
 };
 function additionButton(){
-    sessionStorage.setItem('firstNumber',document.getElementById('readout').innerHTML);
-    document.getElementById('previous-readout').innerHTML = document.getElementById('readout').innerHTML + " +";
+    sessionStorage.setItem('storedNumber',document.getElementById('readout').innerHTML);
+    document.getElementById('results-readout').innerHTML = document.getElementById('readout').innerHTML + " +";
     document.getElementById('readout').innerHTML = '';
     readyToAdd = true;
     resultGot = false;
 };
 function subtractionButton(){
-    sessionStorage.setItem('firstNumber',document.getElementById('readout').innerHTML);
+    sessionStorage.setItem('storedNumber',document.getElementById('readout').innerHTML);
+    document.getElementById('results-readout').innerHTML = document.getElementById('readout').innerHTML + " -";
     document.getElementById('readout').innerHTML = '';
     readyToSubtract = true;
+    resultGot = false;
 };
 function multiplicationButton(){
-    sessionStorage.setItem('firstNumber',document.getElementById('readout').innerHTML);
+    sessionStorage.setItem('storedNumber',document.getElementById('readout').innerHTML);
+    document.getElementById('results-readout').innerHTML = document.getElementById('readout').innerHTML + " x";
     document.getElementById('readout').innerHTML = '';
     readyToMultiply = true;
+    resultGot = false;
 };
 function divisionButton(){
-    sessionStorage.setItem('firstNumber',document.getElementById('readout').innerHTML);
+    sessionStorage.setItem('storedNumber',document.getElementById('readout').innerHTML);
+    document.getElementById('results-readout').innerHTML = document.getElementById('readout').innerHTML + " /";
     document.getElementById('readout').innerHTML = '';
     readyToDivide = true;
+    resultGot = false;
 };
 function getResult(){
     if (readyToAdd === true) {
-        result = parseInt(sessionStorage.getItem('firstNumber')) + parseInt(document.getElementById('readout').innerHTML)
-        document.getElementById('readout').innerHTML = result
+        result = parseInt(sessionStorage.getItem('storedNumber')) + parseInt(document.getElementById('readout').innerHTML);
         readyToAdd = false;
-        resultGot = true;
     }
     if (readyToSubtract === true) {
-        let result = parseInt(sessionStorage.getItem('firstNumber')) - parseInt(document.getElementById('readout').innerHTML)
-        document.getElementById('readout').innerHTML = result
+        result = parseInt(sessionStorage.getItem('storedNumber')) - parseInt(document.getElementById('readout').innerHTML);
         readyToSubtract = false;
-        resultGot = true;
     }
     if (readyToMultiply === true) {
-        let result = parseInt(sessionStorage.getItem('firstNumber')) * parseInt(document.getElementById('readout').innerHTML)
-        document.getElementById('readout').innerHTML = result
+        result = parseInt(sessionStorage.getItem('storedNumber')) * parseInt(document.getElementById('readout').innerHTML);
         readyToMultiply = false;
-        resultGot = true;
     }
     if (readyToDivide === true) {
-        let result = parseInt(sessionStorage.getItem('firstNumber')) / parseInt(document.getElementById('readout').innerHTML)
-        document.getElementById('readout').innerHTML = result
+        result = parseInt(sessionStorage.getItem('storedNumber')) / parseInt(document.getElementById('readout').innerHTML);
         readyToDivide = false;
-        resultGot = true;
     }
+    document.getElementById('results-readout').innerHTML = result;
+    document.getElementById('readout').innerHTML = result;
+    resultGot = true;
 };
